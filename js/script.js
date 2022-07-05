@@ -17,6 +17,10 @@ function createList() {
         while(listEle.firstChild){
             listEle.removeChild(listEle.firstChild);
         }
+
+        if(items.length==0){
+            return;
+        }
     }
 
     const tr1 = document.createElement('tr');
@@ -42,17 +46,15 @@ function createList() {
         chk.id = index;
         chk.name = 
         chk.addEventListener('change',() =>{
-            const chkEle = document.getElementsByName
             if(chk.checked){
                 items.splice(chk.id,1);
-                createElement();
+                createList();
             }
         });
         tr2.appendChild(td1);
         tr2.appendChild(td2);
         tr2.appendChild(chk);
         listEle.appendChild(tr2);
-        console.log('createList');
     });
     
 }
